@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: | 
         python -m pip install --upgrade pip 
-        pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
+        pip install flake8 #pep8-naming flake8-broken-line flake8-return flake8-isort
         pip install -r requirements.txt 
 
     - name: Test with flake8 and django tests
@@ -55,7 +55,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        #passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
         script: |
           # Выполняет pull образа с DockerHub
           sudo docker pull traderdaniil/infra_project
